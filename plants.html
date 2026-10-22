@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Catalog &amp; Cultivation Guide - Bharat Nursery</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">BN</div>
+        <div class="logo-text">
+          <h1>Bharat Nursery</h1>
+          <span>Smart &amp; Sustainable Horticulture</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About &amp; Location</a></li>
+          <li><a href="plants.html" class="nav-link active">Plants Catalog</a></li>
+          <li><a href="recommend.html" class="nav-link">Smart Recommender</a></li>
+          <li><a href="account.html" class="nav-link">My Account</a></li>
+          <li><a href="login.html" id="nav-auth-btn" class="nav-btn">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Indigenous &amp; Acclimatized Plant Catalog</h1>
+      <p>Browse 20 verified nursery species with current prices, detailed growth guides, soil specifications, environment requirements, and seasonal care tips.</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <!-- Search & Category Filters Toolbar -->
+      <div class="catalog-toolbar">
+        <div class="search-box">
+          <input type="text" id="plant-search-input" placeholder="Search by common name, botanical name, or category...">
+        </div>
+
+        <div class="category-pills">
+          <button class="pill-btn active" data-category="All">All Plants (20)</button>
+          <button class="pill-btn" data-category="Medicinal">Medicinal</button>
+          <button class="pill-btn" data-category="Indoor">Indoor</button>
+          <button class="pill-btn" data-category="Outdoor Trees">Outdoor Trees</button>
+          <button class="pill-btn" data-category="Flowering">Flowering</button>
+        </div>
+      </div>
+
+      <!-- Main Plants Grid (Populated by js/plants.js) -->
+      <div class="plants-grid-main" id="plants-catalog-grid">
+        <!-- Rendered dynamically by js/plants.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Plant Details Modal Overlay -->
+  <div class="modal-overlay" id="plant-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closePlantModal()" aria-label="Close modal">&times;</button>
+      <div id="modal-body-content">
+        <!-- Populated dynamically on click -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>Bharat Nursery</h3>
+        <p>A community service initiative promoting sustainable horticulture, native urban landscaping, and eco-friendly nursery operations in Pataudi, Haryana.</p>
+        <div class="sdg-tag-row">
+          <span class="sdg-tag">SDG 11</span>
+          <span class="sdg-tag">SDG 12</span>
+          <span class="sdg-tag">SDG 13</span>
+          <span class="sdg-tag">SDG 15</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Nursery</a></li>
+          <li><a href="plants.html">Plant Catalog (20+ Plants)</a></li>
+          <li><a href="recommend.html">Smart Recommender Filter</a></li>
+          <li><a href="account.html">My Account &amp; Address API</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit &amp; Connect</h4>
+        <p>Location: Bharat Nursery, Pataudi, Haryana, India</p>
+        <p>Instagram: @bharat_nursery01</p>
+        <p>Timings: 8:00 AM - 7:00 PM (All Days Open)</p>
+        <p>Hotline: +91 98765 43210</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community Mission</h4>
+        <p>This platform is developed as an academic and community service solution dedicated to zero plant mortality and environmental restoration.</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Bharat Nursery. All rights reserved. Academic Community Service Prototype.</div>
+      <div>Designed with HTML, CSS, JavaScript, Node.js, and Python. Zero Emojis.</div>
+    </div>
+  </footer>
+
+  <script src="js/plants.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

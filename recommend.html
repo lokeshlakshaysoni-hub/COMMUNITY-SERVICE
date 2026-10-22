@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Plant Recommender - Bharat Nursery</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">BN</div>
+        <div class="logo-text">
+          <h1>Bharat Nursery</h1>
+          <span>Smart &amp; Sustainable Horticulture</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About &amp; Location</a></li>
+          <li><a href="plants.html" class="nav-link">Plants Catalog</a></li>
+          <li><a href="recommend.html" class="nav-link active">Smart Recommender</a></li>
+          <li><a href="account.html" class="nav-link">My Account</a></li>
+          <li><a href="login.html" id="nav-auth-btn" class="nav-btn">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Smart Microclimate Plant Recommendation Filter</h1>
+      <p>Provide your space, sunlight, soil, and watering details. Our algorithm evaluates compatibility to recommend plants that will thrive in your specific conditions.</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="recommend-layout">
+        
+        <!-- Filter Criteria Form Panel -->
+        <div class="filter-panel">
+          <h3>Your Environmental Criteria</h3>
+          <p>Fill out your exact home setup to find optimal plant matches.</p>
+
+          <form id="recommend-filter-form">
+            <div class="form-group">
+              <label for="filter-sunlight">Sunlight Exposure</label>
+              <select id="filter-sunlight" class="form-control" required>
+                <option value="direct">Direct Full Sun (6+ hours daily)</option>
+                <option value="partial">Partial Sun (3 to 6 hours morning/evening)</option>
+                <option value="indirect" selected>Bright Indirect Light (No direct rays)</option>
+                <option value="low">Low Light / Interior Shade</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="filter-space">Available Growing Space</label>
+              <select id="filter-space" class="form-control" required>
+                <option value="balcony">Balcony Container / Railing</option>
+                <option value="indoor" selected>Indoor Living Room / Bedroom</option>
+                <option value="ground">Open Garden / Ground Plot</option>
+                <option value="desk">Desk / Window Sill / Shelf</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="filter-soil">Available Soil Type</label>
+              <select id="filter-soil" class="form-control" required>
+                <option value="cocopeat" selected>Cocopeat / Lightweight Potting Mix</option>
+                <option value="loamy">Garden Loam with Compost</option>
+                <option value="sandy">Gritty Fast-Draining Sand / Succulent Mix</option>
+                <option value="clayey">Native Heavy / Red Deccan Soil</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="filter-watering">Watering Routine Capacity</label>
+              <select id="filter-watering" class="form-control" required>
+                <option value="low" selected>Low Maintenance (Once weekly or less)</option>
+                <option value="moderate">Moderate (2 to 3 times a week)</option>
+                <option value="daily">Daily Attention Available</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="filter-purpose">Primary Purpose of Plant</label>
+              <select id="filter-purpose" class="form-control" required>
+                <option value="air" selected>Indoor Air Purification &amp; Health</option>
+                <option value="fragrance">Aromatic Fragrance &amp; Flowers</option>
+                <option value="medicinal">Ayurvedic / Kitchen Culinary Herb</option>
+                <option value="shade">Urban Shade &amp; Tree Canopy</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="filter-season">Current Planting Season</label>
+              <select id="filter-season" class="form-control" required>
+                <option value="all" selected>All-Season Resilient Species</option>
+                <option value="summer">Summer / Dry Heat Tolerance</option>
+                <option value="monsoon">Monsoon / High Humidity Active</option>
+                <option value="winter">Winter / Mild Climate</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Find Best Matching Plants</button>
+          </form>
+        </div>
+
+        <!-- Matched Recommendations Results Panel -->
+        <div class="results-panel">
+          <div class="results-header">
+            <h3>Recommended Species for Your Setup</h3>
+            <span id="matched-count-text">Calculating highest compatibility matches...</span>
+          </div>
+
+          <div class="matched-cards-grid" id="recommendation-results-grid">
+            <!-- Populated dynamically by js/recommend.js -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Plant Details Modal Overlay -->
+  <div class="modal-overlay" id="plant-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closePlantModal()" aria-label="Close modal">&times;</button>
+      <div id="modal-body-content">
+        <!-- Populated dynamically on click -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>Bharat Nursery</h3>
+        <p>A community service initiative promoting sustainable horticulture, native urban landscaping, and eco-friendly nursery operations in Pataudi, Haryana.</p>
+        <div class="sdg-tag-row">
+          <span class="sdg-tag">SDG 11</span>
+          <span class="sdg-tag">SDG 12</span>
+          <span class="sdg-tag">SDG 13</span>
+          <span class="sdg-tag">SDG 15</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Nursery</a></li>
+          <li><a href="plants.html">Plant Catalog (20+ Plants)</a></li>
+          <li><a href="recommend.html">Smart Recommender Filter</a></li>
+          <li><a href="account.html">My Account &amp; Address API</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit &amp; Connect</h4>
+        <p>Location: Bharat Nursery, Pataudi, Haryana, India</p>
+        <p>Instagram: @bharat_nursery01</p>
+        <p>Timings: 8:00 AM - 7:00 PM (All Days Open)</p>
+        <p>Hotline: +91 98765 43210</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community Mission</h4>
+        <p>This platform is developed as an academic and community service solution dedicated to zero plant mortality and environmental restoration.</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Bharat Nursery. All rights reserved. Academic Community Service Prototype.</div>
+      <div>Designed with HTML, CSS, JavaScript, Node.js, and Python. Zero Emojis.</div>
+    </div>
+  </footer>
+
+  <script src="js/plants.js"></script>
+  <script src="js/recommend.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

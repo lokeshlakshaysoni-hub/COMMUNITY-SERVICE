@@ -1,0 +1,24 @@
+{
+  "name": "bharat-nursery-smart-management",
+  "version": "1.0.0",
+  "description": "AI-Assisted Smart Nursery Management and Sustainable Landscaping System for Bharat Nursery, Pataudi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "keywords": [
+    "horticulture",
+    "nursery",
+    "pataudi",
+    "sustainable-landscaping",
+    "sdg-11",
+    "smart-recommender"
+  ],
+  "author": "Bharat Nursery Community Service Team",
+  "license": "ISC"
+}

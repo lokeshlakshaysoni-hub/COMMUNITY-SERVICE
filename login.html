@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login &amp; Register - Bharat Nursery</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">BN</div>
+        <div class="logo-text">
+          <h1>Bharat Nursery</h1>
+          <span>Smart &amp; Sustainable Horticulture</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About &amp; Location</a></li>
+          <li><a href="plants.html" class="nav-link">Plants Catalog</a></li>
+          <li><a href="recommend.html" class="nav-link">Smart Recommender</a></li>
+          <li><a href="account.html" class="nav-link">My Account</a></li>
+          <li><a href="login.html" id="nav-auth-btn" class="nav-btn">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-wrapper">
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</button>
+        <button type="button" class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Register New Account</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <h2 style="color: #143621; margin-bottom: 8px; font-size: 1.4rem;">Welcome Back</h2>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">Access your saved plant profiles and consultation requests.</p>
+
+        <div class="form-group">
+          <label for="login-username">Username</label>
+          <input type="text" id="login-username" class="form-control" placeholder="Enter username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" class="form-control" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 25px;">Sign In to Account</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="register-form" style="display: none;">
+        <h2 style="color: #143621; margin-bottom: 8px; font-size: 1.4rem;">Join Bharat Nursery</h2>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">Create your member account for expert plant care advice.</p>
+
+        <div class="form-group">
+          <label for="reg-fullname">Full Name</label>
+          <input type="text" id="reg-fullname" class="form-control" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-username">Username</label>
+          <input type="text" id="reg-username" class="form-control" placeholder="Choose a username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-phone">Phone Number</label>
+          <input type="tel" id="reg-phone" class="form-control" placeholder="10-digit mobile number" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" class="form-control" placeholder="Create a password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 25px;">Create Member Account</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>Bharat Nursery</h3>
+        <p>A community service initiative promoting sustainable horticulture, native urban landscaping, and eco-friendly nursery operations in Pataudi, Haryana.</p>
+        <div class="sdg-tag-row">
+          <span class="sdg-tag">SDG 11</span>
+          <span class="sdg-tag">SDG 12</span>
+          <span class="sdg-tag">SDG 13</span>
+          <span class="sdg-tag">SDG 15</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Nursery</a></li>
+          <li><a href="plants.html">Plant Catalog (20+ Plants)</a></li>
+          <li><a href="recommend.html">Smart Recommender Filter</a></li>
+          <li><a href="account.html">My Account &amp; Address API</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit &amp; Connect</h4>
+        <p>Location: Bharat Nursery, Pataudi, Haryana, India</p>
+        <p>Instagram: @bharat_nursery01</p>
+        <p>Timings: 8:00 AM - 7:00 PM (All Days Open)</p>
+        <p>Hotline: +91 98765 43210</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community Mission</h4>
+        <p>This platform is developed as an academic and community service solution dedicated to zero plant mortality and environmental restoration.</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Bharat Nursery. All rights reserved. Academic Community Service Prototype.</div>
+      <div>Designed with HTML, CSS, JavaScript, Node.js, and Python. Zero Emojis.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function switchAuthTab(tab) {
+      const loginForm = document.getElementById("login-form");
+      const regForm = document.getElementById("register-form");
+      const tabLogin = document.getElementById("tab-login");
+      const tabReg = document.getElementById("tab-register");
+
+      if (tab === "login") {
+        loginForm.style.display = "block";
+        regForm.style.display = "none";
+        tabLogin.classList.add("active");
+        tabReg.classList.remove("active");
+      } else {
+        loginForm.style.display = "none";
+        regForm.style.display = "block";
+        tabLogin.classList.remove("active");
+        tabReg.classList.add("active");
+      }
+    }
+
+    document.getElementById("login-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const username = document.getElementById("login-username").value.trim();
+      localStorage.setItem("bharat_logged_user", JSON.stringify({ username: username, name: username }));
+      alert("Welcome back, " + username + "! Redirecting to your account profile.");
+      window.location.href = "account.html";
+    });
+
+    document.getElementById("register-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const fullname = document.getElementById("reg-fullname").value.trim();
+      const username = document.getElementById("reg-username").value.trim();
+      const phone = document.getElementById("reg-phone").value.trim();
+      const password = document.getElementById("reg-password").value;
+
+      const profile = {
+        name: fullname,
+        username: username,
+        phone: phone,
+        password: password,
+        pfp: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80"
+      };
+
+      localStorage.setItem("bharat_user_profile", JSON.stringify(profile));
+      localStorage.setItem("bharat_logged_user", JSON.stringify({ username: username, name: fullname }));
+      alert("Registration successful! Redirecting to your account profile.");
+      window.location.href = "account.html";
+    });
+  </script>
+</body>
+</html>
