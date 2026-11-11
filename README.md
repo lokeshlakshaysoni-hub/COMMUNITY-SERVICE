@@ -11,7 +11,7 @@ An academic community service and technological platform developed in collaborat
 - **Primary SDG:** SDG 11 - Sustainable Cities and Communities
 - **Supporting SDGs:** SDG 12 (Responsible Consumption), SDG 13 (Climate Action), SDG 15 (Life on Land)
 - **Technology Stack:**
-  - Frontend: Semantic HTML5, Modular CSS3, Modern JavaScript (ES6+)
+  - Frontend: Semantic HTML5, Modular CSS3, Modern JavaScript (ES6+), React.js (React 18 Hooks)
   - Backend Server & APIs: Node.js, Express.js
   - AI / ML Recommendation Module: Python 3 scoring engine & JavaScript microclimate evaluator
   - External APIs: OpenStreetMap Nominatim Reverse Geocoding API & Indian Postal Pincode API
@@ -23,7 +23,7 @@ An academic community service and technological platform developed in collaborat
 
 ```
 Community_Service/
-├── index.html            # Page 1: Home, Why Visit Us, SDG Explanation
+├── index.html            # Page 1: Home, Why Visit Us, SDG Explanation Hub & React SDG Live Calculator
 ├── about.html            # Page 2: About Nursery, Instagram (@bharat_nursery01), Google Maps (Pataudi), Community Ratings
 ├── plants.html           # Page 3: 20 Indigenous & Acclimatized Plants with Prices, Soil, Environment & Seasonal Specs
 ├── recommend.html        # Page 4: Smart Recommendation Filter based on Client Environmental Constraints
@@ -35,8 +35,12 @@ Community_Service/
 │   ├── main.js           # Global navigation toggle, navbar login state, and helpers
 │   ├── plants.js         # Comprehensive 20-plant database, category filtering, search, and detail modal
 │   ├── recommend.js      # Multi-factor microclimate compatibility algorithm
-│   └── account.js        # Profile management, PFP base64 preview, Geolocation API & Postal Pincode API
-├── server.js             # Node.js Express server serving pages and REST API endpoints (/api/reviews, /api/account)
+│   ├── account.js        # Profile management, PFP base64 preview, Geolocation API & Postal Pincode API
+│   └── react-sdg-app.js  # React 18 browser runtime integration for live SDG impact calculation
+├── react-components/
+│   ├── SdgImpactCalculator.jsx  # Modular React component for household CO2, water, and plastic estimation
+│   └── PlantComparator.jsx      # React component for side-by-side botanical attribute comparison
+├── server.js             # Node.js Express server serving pages and REST API endpoints (/api/reviews, /api/account, /api/recommend-ai)
 ├── ai_recommender.py     # Python microservice script for botanical recommendation scoring
 ├── package.json          # Node.js dependencies and run scripts
 └── README.md             # Complete project documentation and SDG justification

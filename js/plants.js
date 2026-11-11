@@ -327,7 +327,7 @@ function renderPlants(plants) {
   container.innerHTML = plants.map(plant => `
     <div class="plant-card-item">
       <div class="plant-img-wrapper">
-        <img src="${plant.image}" alt="${plant.name}" loading="lazy">
+        <img src="${plant.image}" alt="${plant.name}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80';">
         <span class="category-tag">${plant.category}</span>
       </div>
       <div class="plant-card-body">
