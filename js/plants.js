@@ -423,6 +423,17 @@ function openPlantModal(plantId) {
     </div>
 
     <div class="modal-text-block">
+      <h4>Botanical Characteristics & Traits</h4>
+      <div class="modal-spec-box" style="margin-top: 8px;">
+        <ul style="margin: 4px 0 4px 18px; font-size: 0.9rem; color: #333; line-height: 1.6;">
+          <li><strong>Growth Pattern:</strong> ${plant.maintenance === "Very Low" ? "Hardy low-intervention growth" : "Responsive seasonal canopy"}</li>
+          <li><strong>Ecological Trait:</strong> ${plant.category === "Indoor" ? "NASA rated airborne toxin filtration" : (plant.category === "Outdoor Trees" ? "High carbon sequestration & thermal microclimate buffer" : (plant.category === "Flowering" ? "Aromatic pollinator attractor for native honeybees" : "Ayurvedic immunity and medicinal phyto-compounds"))}</li>
+          <li><strong>Acclimatization:</strong> 100% conditioned to Haryana/NCR climate at Bharat Nursery, Pataudi</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modal-text-block">
       <h4>How it Grows Very Well (Growth Guide)</h4>
       <p>${plant.growthGuide}</p>
     </div>
