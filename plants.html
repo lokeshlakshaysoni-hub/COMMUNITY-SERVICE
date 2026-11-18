@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plant Catalog &amp; Cultivation Guide - Bharat Nursery</title>
+  <title>Plant Catalog &amp; Market Pricing Guide - Bharat Nursery</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -27,6 +27,7 @@
           <li><a href="about.html" class="nav-link">About &amp; Location</a></li>
           <li><a href="plants.html" class="nav-link active">Plants Catalog</a></li>
           <li><a href="recommend.html" class="nav-link">Smart Recommender</a></li>
+          <li><a href="reviews.html" class="nav-link">Customer Reviews</a></li>
           <li><a href="account.html" class="nav-link">My Account</a></li>
           <li><a href="login.html" id="nav-auth-btn" class="nav-btn">Login</a></li>
         </ul>
@@ -37,30 +38,36 @@
   <!-- Page Header -->
   <header class="page-header">
     <div class="container">
-      <h1>Indigenous &amp; Acclimatized Plant Catalog</h1>
-      <p>Browse 20 verified nursery species with current prices, detailed growth guides, soil specifications, environment requirements, and seasonal care tips.</p>
+      <h1>Indigenous Flora &amp; Decorative Landscaping Catalog</h1>
+      <p>Explore categorized high-oxygen releases, decorative palms, boundary avenue trees, and flowering ornamentals with verified Indian market pricing.</p>
     </div>
   </header>
 
   <main class="section">
     <div class="container">
+
+      <!-- Market Pricing Context Banner -->
+      <div class="about-highlight-box pop-card" style="margin-bottom: 28px; background-color: #eff6ff; border-left: 4px solid var(--primary);">
+        <strong>Indian Nursery Market Height Pricing Note:</strong> Prices for decorative trees and palms in India depend heavily on plant height. Small saplings (2–4 ft) in polybags or eco-pots cost a fraction of mature landscaping specimens (6–10+ ft) cultivated at local wholesale nurseries. Each entry below shows both sapling entry and mature landscaping valuations.
+      </div>
+
       <!-- Search & Category Filters Toolbar -->
       <div class="catalog-toolbar">
         <div class="search-box">
-          <input type="text" id="plant-search-input" placeholder="Search by common name, botanical name, or category...">
+          <input type="text" id="plant-search-input" placeholder="Search by common name, botanical name, category, or traits...">
         </div>
 
         <div class="category-pills">
-          <button class="pill-btn active" data-category="All">All Plants (20)</button>
-          <button class="pill-btn" data-category="Medicinal">Medicinal</button>
-          <button class="pill-btn" data-category="Indoor">Indoor</button>
-          <button class="pill-btn" data-category="Outdoor Trees">Outdoor Trees</button>
-          <button class="pill-btn" data-category="Flowering">Flowering</button>
+          <button class="pill-btn active" data-category="All">All Species</button>
+          <button class="pill-btn" data-category="High O2 Release">Most O2 Releases</button>
+          <button class="pill-btn" data-category="Decorative Palms">Decorative Palms</button>
+          <button class="pill-btn" data-category="Avenue Trees">Avenue &amp; Boundary Trees</button>
+          <button class="pill-btn" data-category="Flowering &amp; Decorating">Flowering &amp; Decorating</button>
         </div>
       </div>
 
       <!-- Main Plants Grid (Populated by js/plants.js) -->
-      <div class="plants-grid-main" id="plants-catalog-grid">
+      <div class="plants-grid" id="plants-catalog-grid">
         <!-- Rendered dynamically by js/plants.js -->
       </div>
     </div>
@@ -68,13 +75,29 @@
 
   <!-- Plant Details Modal Overlay -->
   <div class="modal-overlay" id="plant-modal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closePlantModal()" aria-label="Close modal">&times;</button>
+    <div class="modal-content-card">
+      <button class="modal-close-btn" onclick="closePlantModal()" aria-label="Close modal">&times;</button>
       <div id="modal-body-content">
         <!-- Populated dynamically on click -->
       </div>
     </div>
   </div>
+
+  <!-- Dedicated KRMU Academic Tag & Copyright Banner -->
+  <section class="krmu-academic-banner">
+    <div class="container academic-banner-content">
+      <div class="krmu-badge">K.R. MANGALAM UNIVERSITY</div>
+      <h3>School of Engineering &amp; Technology - Academic Community Service Project 2026</h3>
+      <p>Project Title: AI-Assisted Smart Nursery Management &amp; Sustainable Urban Greening | Primary Mandate: UN SDG 11</p>
+      <div class="team-credits-row">
+        <div class="team-chip"><strong>Team Lead &amp; System Architect:</strong> Lokesh Verma</div>
+        <div class="team-chip"><strong>UI/UX &amp; Figma Designer:</strong> Punit Kumar</div>
+        <div class="team-chip"><strong>AI Recommender Engine:</strong> Tanay Garg</div>
+        <div class="team-chip"><strong>Community Partner &amp; Geolocation:</strong> Yehan Yadav</div>
+        <div class="team-chip"><strong>Botanical DB &amp; Market Analyst:</strong> Akshat Tomar</div>
+      </div>
+    </div>
+  </section>
 
   <!-- Global Footer -->
   <footer class="footer">
@@ -82,11 +105,8 @@
       <div class="footer-col">
         <h3>Bharat Nursery</h3>
         <p>A community service initiative promoting sustainable horticulture, native urban landscaping, and eco-friendly nursery operations in Pataudi, Haryana.</p>
-        <div class="sdg-tag-row">
-          <span class="sdg-tag">SDG 11</span>
-          <span class="sdg-tag">SDG 12</span>
-          <span class="sdg-tag">SDG 13</span>
-          <span class="sdg-tag">SDG 15</span>
+        <div style="margin-top: 12px;">
+          <span class="sdg-tag primary">Primary: UN SDG 11</span>
         </div>
       </div>
 
@@ -95,8 +115,9 @@
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Nursery</a></li>
-          <li><a href="plants.html">Plant Catalog (20+ Plants)</a></li>
-          <li><a href="recommend.html">Smart Recommender Filter</a></li>
+          <li><a href="plants.html">Plant Catalog</a></li>
+          <li><a href="recommend.html">Smart Recommender</a></li>
+          <li><a href="reviews.html">Customer Reviews</a></li>
           <li><a href="account.html">My Account &amp; Address API</a></li>
         </ul>
       </div>
@@ -110,14 +131,14 @@
       </div>
 
       <div class="footer-col">
-        <h4>Community Mission</h4>
-        <p>This platform is developed as an academic and community service solution dedicated to zero plant mortality and environmental restoration.</p>
+        <h4>Figma &amp; Engineering</h4>
+        <p>Prototyped in Figma by Punit Kumar and Lokesh Verma. Coded with HTML5, CSS3, React 18, Node.js, and Python. Zero Emojis.</p>
       </div>
     </div>
 
     <div class="container footer-bottom">
-      <div>&copy; 2026 Bharat Nursery. All rights reserved. Academic Community Service Prototype.</div>
-      <div>Designed with HTML, CSS, JavaScript, React.js, Node.js, and Python. Zero Emojis.</div>
+      <div>&copy; 2026 Bharat Nursery &amp; K.R. Mangalam University. All rights reserved. Academic Community Service Prototype.</div>
+      <div>Zero Emojis. Built for Clean Urban Living.</div>
     </div>
   </footer>
 

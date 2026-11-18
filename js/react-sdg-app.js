@@ -1,30 +1,32 @@
-// Bharat Nursery - React.js SDG Sustainability & Carbon Estimator
-// Renders live React 18 component into #react-sdg-root
+// Bharat Nursery - React.js SDG 11 Urban Sustainability & Clean Air Calculator
+// Author: Punit Kumar (UI/UX & React Engineer)
+// Architecture & Wireframe: Lokesh Verma (Lead Architect)
+// Framework: React 18 browser runtime | Primary Mandate: UN SDG 11
 
 (function () {
   const e = React.createElement;
 
-  function SdgLiveCalculator() {
-    const [plantCount, setPlantCount] = React.useState(8);
+  function Sdg11UrbanCalculator() {
+    const [plantCount, setPlantCount] = React.useState(12);
     const [spaceType, setSpaceType] = React.useState("balcony");
     const [irrigation, setIrrigation] = React.useState("drip");
-    const [potType, setPotType] = React.useState("coir");
 
-    const totalCo2 = (plantCount * 12.5).toFixed(1);
-    const waterSaved = irrigation === "drip" ? ((1.2 - 0.55) * plantCount * 30).toFixed(0) : "0";
-    const plasticSaved = potType === "coir" ? plantCount : 0;
-    const oxygenDaily = (plantCount * 45).toFixed(0);
+    // SDG 11 Specific Urban Environmental Calculations
+    const dailyOxygen = (plantCount * 48).toFixed(0); // Litres/day
+    const urbanCanopyArea = (plantCount * 2.4).toFixed(1); // Sq ft of green canopy
+    const ambientCoolingFactor = (plantCount * 0.12).toFixed(2); // Estimated microclimate cooling index (deg C reduction)
+    const pm25FilteredGrams = (plantCount * 1.8).toFixed(1); // Airborne particulate matter trapped (grams/month)
 
-    return e("div", { className: "react-sdg-card" },
+    return e("div", { className: "react-sdg-card pop-card" },
       e("div", { className: "react-calc-header" },
-        e("span", { className: "react-badge" }, "Interactive React.js Component"),
-        e("h3", null, "Household SDG Ecological Impact Estimator"),
-        e("p", null, "Adjust your gardening setup below to calculate real-time environmental metrics mapped to UN SDGs 11, 12, 13, and 15.")
+        e("span", { className: "react-badge" }, "Primary Focus: UN SDG 11 - Sustainable Cities"),
+        e("h3", null, "Household Urban Canopy & Clean Air Calculator"),
+        e("p", null, "Calculate how your domestic plant setup directly advances UN SDG Target 11.7 (Inclusive Green Spaces & Urban Microclimate Cooling).")
       ),
       e("div", { className: "react-calc-grid" },
         e("div", { className: "react-inputs" },
           e("div", { className: "react-input-group" },
-            e("label", null, "Saplings Cultivated: ", e("strong", null, plantCount + " plants")),
+            e("label", null, "Domestic Saplings Maintained: ", e("strong", { style: { color: "var(--primary)" } }, plantCount + " plants")),
             e("input", {
               type: "range",
               min: "1",
@@ -35,61 +37,50 @@
             })
           ),
           e("div", { className: "react-input-group" },
-            e("label", null, "Growing Location"),
+            e("label", null, "Urban Location Type (SDG 11 Space Category)"),
             e("select", {
               value: spaceType,
               onChange: (evt) => setSpaceType(evt.target.value),
               className: "form-control"
             },
-              e("option", { value: "balcony" }, "Balcony Container / Railing"),
-              e("option", { value: "terrace" }, "Rooftop / Terrace Garden"),
-              e("option", { value: "indoor" }, "Indoor Rooms / Living Space"),
-              e("option", { value: "ground" }, "Open Ground Plot / Park")
+              e("option", { value: "balcony" }, "Apartment Balcony / Railing Garden"),
+              e("option", { value: "terrace" }, "Rooftop Urban Terrace Garden"),
+              e("option", { value: "indoor" }, "Indoor Living Room & Window Sills"),
+              e("option", { value: "veranda" }, "Courtyard / Ground Plot")
             )
           ),
           e("div", { className: "react-input-group" },
-            e("label", null, "Irrigation Method"),
+            e("label", null, "Water Conservation Mode"),
             e("select", {
               value: irrigation,
               onChange: (evt) => setIrrigation(evt.target.value),
               className: "form-control"
             },
-              e("option", { value: "drip" }, "Micro-Drip Irrigation (45% Water Saving)"),
-              e("option", { value: "flood" }, "Conventional Hose / Bucket Watering")
-            )
-          ),
-          e("div", { className: "react-input-group" },
-            e("label", null, "Potting Medium"),
-            e("select", {
-              value: potType,
-              onChange: (evt) => setPotType(evt.target.value),
-              className: "form-control"
-            },
-              e("option", { value: "coir" }, "100% Biodegradable Coconut Coir Pots"),
-              e("option", { value: "plastic" }, "Standard Commercial Plastic Nursery Bags")
+              e("option", { value: "drip" }, "Micro-Drip System (Zero Runoff Waste)"),
+              e("option", { value: "bucket" }, "Manual Root Sprinkling")
             )
           )
         ),
         e("div", { className: "react-metrics-grid" },
           e("div", { className: "react-metric-box" },
-            e("span", { className: "metric-sdg-tag" }, "SDG 13 - Climate Action"),
-            e("div", { className: "metric-num" }, totalCo2 + " kg"),
-            e("div", { className: "metric-sub" }, "Annual CO2 Absorption")
-          ),
-          e("div", { className: "react-metric-box" },
-            e("span", { className: "metric-sdg-tag" }, "SDG 12 - Responsible Use"),
-            e("div", { className: "metric-num" }, waterSaved + " Litres"),
-            e("div", { className: "metric-sub" }, "Water Conserved Every Month")
-          ),
-          e("div", { className: "react-metric-box" },
-            e("span", { className: "metric-sdg-tag" }, "SDG 12 - Zero Plastic Waste"),
-            e("div", { className: "metric-num" }, plasticSaved + " Units"),
-            e("div", { className: "metric-sub" }, "Plastic Polybags Kept from Landfills")
-          ),
-          e("div", { className: "react-metric-box" },
-            e("span", { className: "metric-sdg-tag" }, "SDG 11 - Sustainable Cities"),
-            e("div", { className: "metric-num" }, oxygenDaily + " Litres"),
+            e("span", { className: "metric-sdg-tag" }, "SDG 11 Clean Air Output"),
+            e("div", { className: "metric-num" }, dailyOxygen + " L"),
             e("div", { className: "metric-sub" }, "Daily Clean Oxygen Released")
+          ),
+          e("div", { className: "react-metric-box" },
+            e("span", { className: "metric-sdg-tag" }, "SDG 11 Urban Canopy"),
+            e("div", { className: "metric-num" }, urbanCanopyArea + " Sq Ft"),
+            e("div", { className: "metric-sub" }, "New Urban Green Cover Added")
+          ),
+          e("div", { className: "react-metric-box" },
+            e("span", { className: "metric-sdg-tag" }, "SDG 11 Microclimate Buffer"),
+            e("div", { className: "metric-num" }, "-" + ambientCoolingFactor + " C"),
+            e("div", { className: "metric-sub" }, "Local Heat Island Reduction")
+          ),
+          e("div", { className: "react-metric-box" },
+            e("span", { className: "metric-sdg-tag" }, "SDG 11 Air Quality"),
+            e("div", { className: "metric-num" }, pm25FilteredGrams + " g"),
+            e("div", { className: "metric-sub" }, "Monthly PM2.5 Dust Trapped")
           )
         )
       )
@@ -98,13 +89,9 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     const rootEl = document.getElementById("react-sdg-root");
-    if (!rootEl || typeof ReactDOM === "undefined") return;
-
-    if (ReactDOM.createRoot) {
+    if (rootEl && window.React && window.ReactDOM) {
       const root = ReactDOM.createRoot(rootEl);
-      root.render(e(SdgLiveCalculator));
-    } else {
-      ReactDOM.render(e(SdgLiveCalculator), rootEl);
+      root.render(e(Sdg11UrbanCalculator));
     }
   });
 })();
