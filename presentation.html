@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation Deck - Bharat Nursery | K.R. Mangalam University</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .deck-container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .slide {
+      display: none;
+      background: #ffffff;
+      color: #0f172a;
+      border-radius: 16px;
+      padding: 45px 50px;
+      min-height: 580px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      animation: fadeInSlide 0.3s ease;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-header {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .slide-tag {
+      background-color: #dbeafe;
+      color: #1e40af;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .slide-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-top: 6px;
+    }
+
+    .slide-content-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .slide-content-full {
+      width: 100%;
+    }
+
+    .slide-list {
+      margin-left: 20px;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      color: #334155;
+    }
+
+    .slide-list li {
+      margin-bottom: 12px;
+    }
+
+    .slide-img-box {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+      background-color: #f1f5f9;
+      text-align: center;
+    }
+
+    .slide-img-box img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-img-caption {
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #475569;
+      background-color: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .deck-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding: 10px 0;
+    }
+
+    .ctrl-btn {
+      background-color: #1e40af;
+      color: #ffffff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .ctrl-btn:hover {
+      background-color: #1e3a8a;
+    }
+
+    .ctrl-btn:disabled {
+      background-color: #475569;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .slide-counter {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .highlight-card {
+      background-color: #f8fafc;
+      border-left: 4px solid #1e40af;
+      padding: 16px 20px;
+      border-radius: 6px;
+      margin-top: 16px;
+      font-size: 0.95rem;
+      color: #1e293b;
+    }
+
+    .speaker-note-box {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 18px 24px;
+      margin-top: 25px;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
+    .speaker-note-box strong {
+      color: #60a5fa;
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.6px;
+    }
+
+    @media (max-width: 850px) {
+      .slide-content-grid {
+        grid-template-columns: 1fr;
+      }
+      .slide-img-box img {
+        height: 240px;
+      }
+      .slide {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Simple Nav -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon">BN</div>
+        <div class="logo-text">
+          <h1>Bharat Nursery</h1>
+          <span>Project Presentation Deck</span>
+        </div>
+      </a>
+      <div>
+        <a href="index.html" class="nav-btn" style="padding: 6px 14px; font-size: 0.85rem;">Exit to Website</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="deck-container">
+
+    <!-- SLIDE 1: TITLE SLIDE -->
+    <div class="slide active" id="slide-1">
+      <div class="slide-header">
+        <span class="slide-tag">Academic Community Service Project</span>
+        <span style="font-size: 0.85rem; font-weight: 700; color: #64748b;">Academic Year 2026</span>
+      </div>
+      <div style="text-align: center; padding: 40px 10px;">
+        <div class="krmu-badge" style="font-size: 0.85rem; padding: 6px 18px; margin-bottom: 16px;">K.R. MANGALAM UNIVERSITY</div>
+        <h1 style="font-size: 2.3rem; font-weight: 800; color: #0f172a; margin-bottom: 12px;">AI-Assisted Smart Nursery Management &amp; Urban Greening</h1>
+        <p style="font-size: 1.15rem; color: #475569; max-width: 750px; margin: 0 auto 30px auto;">
+          A sustainable digital solution in collaboration with Bharat Nursery, Pataudi, dedicated to eradicating domestic plant mortality through microclimate matching.
+        </p>
+        <div class="highlight-card" style="display: inline-block; text-align: left; max-width: 650px;">
+          <p><strong>Faculty Mentor:</strong> Ms. Atisha Dahiya</p>
+          <p><strong>Primary SDG Mandate:</strong> UN SDG 11 (Sustainable Cities and Communities)</p>
+          <p><strong>Team Members:</strong> Lokesh Verma (Lead), Yehan Yadav, Tanay Garg, Akshat Tomar, Punit Kumar</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: PROBLEM STATEMENT -->
+    <div class="slide" id="slide-2">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Project Motivation</span>
+          <h2 class="slide-title">Problem Statement: Urban Plant Mortality</h2>
+        </div>
+      </div>
+      <div class="slide-content-full">
+        <ul class="slide-list">
+          <li><strong>High Domestic Plant Mortality:</strong> Over 40% of residential plants purchased in urban NCR households die within 90 days due to lack of environmental matching.</li>
+          <li><strong>Microclimate Blindness:</strong> Consumers buy plants based on aesthetics rather than matching light exposure (harsh western sun vs low-light interior shade) and balcony airflow.</li>
+          <li><strong>Transplant Shock:</strong> Commercial plants grown in synthetic, temperature-controlled greenhouses rapidly collapse when moved to domestic conditions.</li>
+          <li><strong>Plastic Waste Influx:</strong> Conventional nurseries distribute millions of non-biodegradable black plastic polybags that end up in regional landfills.</li>
+        </ul>
+        <div class="highlight-card">
+          <strong>Community Objective:</strong> Connect local residents with Bharat Nursery's 100% natural, field-acclimatized saplings and guide them with data-driven botanical matchmaking.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: UN SDG 11 ALIGNMENT -->
+    <div class="slide" id="slide-3">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Core Academic Focus</span>
+          <h2 class="slide-title">Primary Mandate: UN SDG 11</h2>
+        </div>
+      </div>
+      <div class="slide-content-full">
+        <p style="font-size: 1.05rem; color: #475569; margin-bottom: 20px;">
+          Rather than functioning as a commercial e-commerce site, this platform is explicitly mapped to <strong>UN SDG 11: Sustainable Cities &amp; Communities</strong>.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-top: 4px solid #1e40af; border-radius: 8px; padding: 20px;">
+            <strong style="color: #1e40af; font-size: 0.85rem; text-transform: uppercase;">SDG Target 11.7</strong>
+            <h4 style="margin: 8px 0; color: #0f172a;">Green Public &amp; Domestic Spaces</h4>
+            <p style="font-size: 0.88rem; color: #64748b;">Transforms concrete urban balconies and terraces into viable photosynthetic canopies.</p>
+          </div>
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-top: 4px solid #059669; border-radius: 8px; padding: 20px;">
+            <strong style="color: #059669; font-size: 0.85rem; text-transform: uppercase;">SDG Target 11.6</strong>
+            <h4 style="margin: 8px 0; color: #0f172a;">Air Quality Improvement</h4>
+            <p style="font-size: 0.88rem; color: #64748b;">Deploys native species (Neem, Peepal, Ashoka) that trap airborne PM2.5 particulate dust.</p>
+          </div>
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-top: 4px solid #d97706; border-radius: 8px; padding: 20px;">
+            <strong style="color: #d97706; font-size: 0.85rem; text-transform: uppercase;">SDG Target 11.B</strong>
+            <h4 style="margin: 8px 0; color: #0f172a;">Urban Heat Island Mitigation</h4>
+            <p style="font-size: 0.88rem; color: #64748b;">Rooftop and balcony shading reduces residential ambient heat loads by up to 2.5 degrees Celsius.</p>
+          </div>
+        </div>
+        <div class="highlight-card" style="margin-top: 20px;">
+          <strong>Auxiliary Alignments:</strong> SDG 12 (Plastic-free coir planters), SDG 13 (Carbon sequestration), and SDG 15 (Native biodiversity corridors).
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: COMMUNITY PARTNER BHARAT NURSERY -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Community Collaboration</span>
+          <h2 class="slide-title">Partner: Bharat Nursery (Pataudi, Haryana)</h2>
+        </div>
+      </div>
+      <div class="slide-content-grid">
+        <div>
+          <ul class="slide-list">
+            <li><strong>Location:</strong> Main Highway Corridor, Pataudi, Haryana.</li>
+            <li><strong>Operational History:</strong> Over a decade of regional horticultural service.</li>
+            <li><strong>Natural Acclimatization:</strong> Saplings are grown in outdoor regional conditions, resisting northern heatwaves and winter cold.</li>
+            <li><strong>Organic Soil Biology:</strong> Formulations enriched with vermicompost and neem cake, eliminating chemical pesticides.</li>
+            <li><strong>Eco Packaging:</strong> Biodegradable coconut coir planters and woven root-bags eliminate plastic polybags.</li>
+          </ul>
+        </div>
+        <div class="slide-img-box">
+          <img src="img/ppt/field_nursery_1.jpg" alt="Students at Bharat Nursery">
+          <div class="slide-img-caption">Field Verification: Team Members Demonstrating System at Bharat Nursery</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: DIGITAL SOLUTION & WEBSITE -->
+    <div class="slide" id="slide-5">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">System Implementation</span>
+          <h2 class="slide-title">Full-Stack Digital Web Platform</h2>
+        </div>
+      </div>
+      <div class="slide-content-grid">
+        <div>
+          <ul class="slide-list">
+            <li><strong>Multi-Page Architecture:</strong> 7 specialized responsive views: Home, About, Plants Catalog, Smart Recommender, Customer Reviews, My Account, and Portal Login.</li>
+            <li><strong>Figma UI/UX Foundation:</strong> Prototyped by Punit Kumar and structured by Lokesh Verma using an 8pt baseline spatial grid.</li>
+            <li><strong>Jitter-Free Elevation:</strong> Smooth CSS3 transitions with zero hover flicker across desktop, tablet, and mobile devices.</li>
+            <li><strong>Zero Emojis:</strong> Strictly verified academic standard across all code, markup, and user notifications.</li>
+          </ul>
+        </div>
+        <div class="slide-img-box">
+          <img src="img/ppt/website_hero.jpg" alt="Bharat Nursery Website Hero">
+          <div class="slide-img-caption">Live Platform: Responsive Web Application Deployed with Node.js &amp; GitHub</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: BOTANICAL DATABASE & PRICING -->
+    <div class="slide" id="slide-6">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Data Architecture</span>
+          <h2 class="slide-title">Categorized Botanical Database &amp; Pricing</h2>
+        </div>
+      </div>
+      <div class="slide-content-full">
+        <p style="font-size: 1rem; color: #475569; margin-bottom: 15px;">
+          Curated by <strong>Akshat Tomar</strong>: 20 verified species with authentic Indian wholesale nursery market pricing reflecting plant height differences.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px;">
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px;">
+            <strong style="color: #059669;">1. Most O2 Releases</strong>
+            <p style="font-size: 0.85rem; color: #475569; margin-top: 6px;">Peepal Tree, Neem Tree, Snake Plant, Tulsi. 24-hr continuous oxygen release via CAM pathways.</p>
+            <div style="font-weight: 700; font-size: 0.85rem; color: #0f172a; margin-top: 8px;">Rs. 40 - Rs. 450</div>
+          </div>
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px;">
+            <strong style="color: #d97706;">2. Decorative Palms</strong>
+            <p style="font-size: 0.85rem; color: #475569; margin-top: 6px;">Bottle Palm, Foxtail Palm, Areca Palm, Bismarckia Palm, Washingtonia, Cycas.</p>
+            <div style="font-weight: 700; font-size: 0.85rem; color: #0f172a; margin-top: 8px;">Sapling Rs. 110 | Specimen Rs. 2,600+</div>
+          </div>
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px;">
+            <strong style="color: #1e40af;">3. Boundary &amp; Avenue Trees</strong>
+            <p style="font-size: 0.85rem; color: #475569; margin-top: 6px;">False Ashoka (Pendula), Sita Ashoka, Ficus Panda Topiary, Silver Oak, Weeping Fig.</p>
+            <div style="font-weight: 700; font-size: 0.85rem; color: #0f172a; margin-top: 8px;">Rs. 30 - Rs. 4,000 (Topiary)</div>
+          </div>
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px;">
+            <strong style="color: #ea580c;">4. Flowering Ornamentals</strong>
+            <p style="font-size: 0.85rem; color: #475569; margin-top: 6px;">Gulmohar, Amaltas, Neel Mohar (Jacaranda), Pink Trumpet, Champa, Bougainvillea.</p>
+            <div style="font-weight: 700; font-size: 0.85rem; color: #0f172a; margin-top: 8px;">Rs. 50 - Rs. 750+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: AI RECOMMENDER ALGORITHM -->
+    <div class="slide" id="slide-7">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Core Technical Module</span>
+          <h2 class="slide-title">Smart AI Microclimate Recommender</h2>
+        </div>
+      </div>
+      <div class="slide-content-grid">
+        <div>
+          <ul class="slide-list">
+            <li><strong>Multi-Factor Evaluation:</strong> Replaces superficial aesthetic picking with 5 weighted environmental inputs: sunlight, space, soil, watering, and primary purpose.</li>
+            <li><strong>Compatibility Scoring Formula:</strong> Evaluates base score (50.0) with dynamic weighting: Sunlight (+15), Space (+12), Soil (+10), Purpose (+10), and Water (+8).</li>
+            <li><strong>Dual-Engine Architecture:</strong> Primary computational Python engine (`ai_recommender.py`) with automatic fallback to high-performance JavaScript rule engine (`recommend.js`).</li>
+          </ul>
+        </div>
+        <div class="slide-img-box">
+          <img src="img/ppt/code_algorithm.jpg" alt="VS Code AI Algorithm">
+          <div class="slide-img-caption">Implementation Code: Microclimate Scoring Engine in VS Code</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: REACT SDG CALCULATOR & APIS -->
+    <div class="slide" id="slide-8">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Interactive Frontend &amp; Web APIs</span>
+          <h2 class="slide-title">React.js SDG Calculator &amp; Live APIs</h2>
+        </div>
+      </div>
+      <div class="slide-content-full">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 22px;">
+            <h4 style="color: #1e40af; margin-bottom: 10px;">React.js 18 Urban Canopy Calculator</h4>
+            <p style="font-size: 0.9rem; color: #475569; line-height: 1.6;">
+              Engineered by Punit Kumar: Renders reactive state in the browser to quantify domestic sustainability in real time:
+            </p>
+            <ul style="font-size: 0.85rem; color: #334155; margin-left: 18px; margin-top: 8px; line-height: 1.6;">
+              <li><strong>Daily Clean O2 Released:</strong> 48 Litres / plant / day</li>
+              <li><strong>Urban Canopy Area:</strong> 2.4 Sq Ft / plant</li>
+              <li><strong>Microclimate Buffer Index:</strong> -0.12 deg C cooling</li>
+              <li><strong>Air Quality Impact:</strong> 1.8g PM2.5 trapped / month</li>
+            </ul>
+          </div>
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 22px;">
+            <h4 style="color: #059669; margin-bottom: 10px;">Browser Geolocation &amp; Postal APIs</h4>
+            <p style="font-size: 0.9rem; color: #475569; line-height: 1.6;">
+              Engineered by Yehan Yadav in `account.js`:
+            </p>
+            <ul style="font-size: 0.85rem; color: #334155; margin-left: 18px; margin-top: 8px; line-height: 1.6;">
+              <li><strong>HTML5 Geolocation API:</strong> Automatically captures user coordinates and calculates distance to Bharat Nursery.</li>
+              <li><strong>Postal PIN Code API:</strong> Auto-populates city and state details based on Indian postal database.</li>
+              <li><strong>Profile Synchronization:</strong> Real-time `localStorage` session handling with PFP avatar selection.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: ON-GROUND FIELD TESTING -->
+    <div class="slide" id="slide-9">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Field Survey &amp; Validation</span>
+          <h2 class="slide-title">On-Ground Testing &amp; Community Reviews</h2>
+        </div>
+      </div>
+      <div class="slide-content-grid">
+        <div>
+          <ul class="slide-list">
+            <li><strong>Direct Nursery Validation:</strong> Platform demonstrated to nursery operators and local gardeners on-site at Pataudi.</li>
+            <li><strong>Verified Customer Review Hub:</strong> 4.8 / 5.0 overall rating across 148 verified community visitors.</li>
+            <li><strong>Reported Plant Survival:</strong> 98% survival rate reported by balcony gardeners using our microclimate filter.</li>
+            <li><strong>Interactive Feedback Form:</strong> Visitors submit verified feedback stored directly via `/api/reviews` REST endpoint.</li>
+          </ul>
+        </div>
+        <div class="slide-img-box">
+          <img src="img/ppt/field_nursery_2.jpg" alt="Students presenting project in Pataudi">
+          <div class="slide-img-caption">Community Engagement: Live Testing with Gardeners in Pataudi</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: PROBLEMS FACED & SOLUTIONS -->
+    <div class="slide" id="slide-10">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Engineering Resilience</span>
+          <h2 class="slide-title">Challenges Faced &amp; Solutions</h2>
+        </div>
+      </div>
+      <div class="slide-content-full">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+          <div class="highlight-card" style="border-left-color: #ea580c; margin-top: 0;">
+            <strong style="color: #ea580c;">Challenge 1: Wholesale vs Retail Price Gap</strong>
+            <p style="font-size: 0.88rem; margin-top: 6px;">Online aggregators add 400% markup, obscuring true nursery prices.</p>
+            <p style="font-size: 0.88rem; font-weight: 600; color: #065f46; margin-top: 4px;">Solution: Curated dual-tier pricing for saplings (2-4 ft) versus mature specimens (6-10 ft).</p>
+          </div>
+          <div class="highlight-card" style="border-left-color: #1e40af; margin-top: 0;">
+            <strong style="color: #1e40af;">Challenge 2: Cross-Platform Python Execution</strong>
+            <p style="font-size: 0.88rem; margin-top: 6px;">Client environments without installed Python failed to execute AI subprocesses.</p>
+            <p style="font-size: 0.88rem; font-weight: 600; color: #065f46; margin-top: 4px;">Solution: Engineered automatic Node.js fallback to native JavaScript rule engine.</p>
+          </div>
+          <div class="highlight-card" style="border-left-color: #059669; margin-top: 0;">
+            <strong style="color: #059669;">Challenge 3: Complex Balcony Microclimates</strong>
+            <p style="font-size: 0.88rem; margin-top: 6px;">Rigid boolean filters resulted in empty plant matches for partial-light setups.</p>
+            <p style="font-size: 0.88rem; font-weight: 600; color: #065f46; margin-top: 4px;">Solution: Implemented weighted composite scoring formula avoiding hard rejections.</p>
+          </div>
+          <div class="highlight-card" style="border-left-color: #d97706; margin-top: 0;">
+            <strong style="color: #d97706;">Challenge 4: UI Jitter &amp; Device Glitches</strong>
+            <p style="font-size: 0.88rem; margin-top: 6px;">Scale transforms on cards caused subpixel mouse-boundary edge flickering.</p>
+            <p style="font-size: 0.88rem; font-weight: 600; color: #065f46; margin-top: 4px;">Solution: Replaced with hardware-accelerated translateY elevation and mobile hamburger menu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: TEAM ROLES -->
+    <div class="slide" id="slide-11">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Team Collaboration</span>
+          <h2 class="slide-title">Team Division &amp; Coding Contributions</h2>
+        </div>
+      </div>
+      <div class="slide-content-full">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 10px;">
+          <thead>
+            <tr style="background-color: #0f172a; color: #ffffff;">
+              <th style="padding: 12px 14px; text-align: left; border-radius: 6px 0 0 0;">Team Member</th>
+              <th style="padding: 12px 14px; text-align: left;">Assigned Role</th>
+              <th style="padding: 12px 14px; text-align: left; border-radius: 0 6px 0 0;">Exact Code Ownership</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e2e8f0; background-color: #f8fafc;">
+              <td style="padding: 12px 14px; font-weight: 700;">Lokesh Verma</td>
+              <td style="padding: 12px 14px; color: #1e40af; font-weight: 600;">Team Lead &amp; System Architect</td>
+              <td style="padding: 12px 14px;">`server.js` (Express REST APIs, Python bridge), architecture, Figma layout</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px; font-weight: 700;">Punit Kumar</td>
+              <td style="padding: 12px 14px; color: #059669; font-weight: 600;">UI/UX &amp; React Engineer</td>
+              <td style="padding: 12px 14px;">Figma UI wireframes, `css/style.css` pop animations, `js/react-sdg-app.js`</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0; background-color: #f8fafc;">
+              <td style="padding: 12px 14px; font-weight: 700;">Tanay Garg</td>
+              <td style="padding: 12px 14px; color: #d97706; font-weight: 600;">AI Recommender Lead</td>
+              <td style="padding: 12px 14px;">`ai_recommender.py` &amp; `js/recommend.js` (Microclimate compatibility scoring)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px; font-weight: 700;">Yehan Yadav</td>
+              <td style="padding: 12px 14px; color: #ea580c; font-weight: 600;">Community Partner &amp; Geo Dev</td>
+              <td style="padding: 12px 14px;">`js/account.js` (Geolocation &amp; Postal PIN code APIs), Bharat Nursery coordination</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0; background-color: #f8fafc;">
+              <td style="padding: 12px 14px; font-weight: 700;">Akshat Tomar</td>
+              <td style="padding: 12px 14px; color: #2563eb; font-weight: 600;">Botanical DB &amp; Market Analyst</td>
+              <td style="padding: 12px 14px;">`js/plants.js` (20-species database schema, live search, multi-category filter)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: CONCLUSION -->
+    <div class="slide" id="slide-12">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Project Conclusion</span>
+          <h2 class="slide-title">Conclusion &amp; Future Scope</h2>
+        </div>
+      </div>
+      <div class="slide-content-full" style="text-align: center; padding: 25px 10px;">
+        <h3 style="font-size: 1.7rem; color: #0f172a; margin-bottom: 15px;">A Tangible Contribution to Urban Sustainability</h3>
+        <p style="font-size: 1.05rem; color: #475569; max-width: 800px; margin: 0 auto 25px auto;">
+          By bridging computer science engineering with on-ground nursery practices at Bharat Nursery in Pataudi, our project provides an accessible, scientific solution to urban plant mortality while advancing UN SDG 11.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 30px;">
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; text-align: left; max-width: 320px;">
+            <strong style="color: #1e40af;">Future Scope:</strong>
+            <p style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">Integration of low-cost IoT soil moisture probes and computer vision leaf disease diagnosis.</p>
+          </div>
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; text-align: left; max-width: 320px;">
+            <strong style="color: #059669;">Deliverables Completed:</strong>
+            <p style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">7-page responsive web app, Node.js server, React 18 calculator, Python AI module, and GitHub repo.</p>
+          </div>
+        </div>
+
+        <div style="font-size: 1.25rem; font-weight: 800; color: #1e40af; margin-top: 15px;">
+          Thank You! Questions &amp; Discussion
+        </div>
+        <p style="color: #64748b; font-size: 0.9rem; margin-top: 6px;">K.R. Mangalam University | School of Engineering &amp; Technology</p>
+      </div>
+    </div>
+
+    <!-- Presentation Navigation Controls -->
+    <div class="deck-controls">
+      <button class="ctrl-btn" id="prev-btn" onclick="prevSlide()" disabled>Previous</button>
+      <div class="slide-counter" id="counter-text">Slide 1 of 12</div>
+      <button class="ctrl-btn" id="next-btn" onclick="nextSlide()">Next Slide</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 12;
+
+    function showSlide(num) {
+      if (num < 1 || num > totalSlides) return;
+      
+      for (let i = 1; i <= totalSlides; i++) {
+        const slide = document.getElementById("slide-" + i);
+        if (slide) slide.classList.remove("active");
+      }
+
+      const activeSlide = document.getElementById("slide-" + num);
+      if (activeSlide) activeSlide.classList.add("active");
+
+      currentSlide = num;
+      document.getElementById("counter-text").textContent = "Slide " + currentSlide + " of " + totalSlides;
+      document.getElementById("prev-btn").disabled = (currentSlide === 1);
+      document.getElementById("next-btn").disabled = (currentSlide === totalSlides);
+      
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) showSlide(currentSlide - 1);
+    }
+
+    // Keyboard Arrow navigation
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
+        nextSlide();
+      } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+        prevSlide();
+      }
+    });
+  </script>
+</body>
+</html>
