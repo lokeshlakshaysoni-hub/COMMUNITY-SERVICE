@@ -60,11 +60,11 @@ const plantData = {
  *          and updates the HTML elements in the details box.
  */
 function showPlantDetails(plantKey) {
-  // 1. Get the plant data from our object
+  // 1. Get the plant data from our object--------------------------------------------
   const plant = plantData[plantKey];
 
   if (!plant) {
-    return; // If plant not found, do nothing
+    return; // If plant not found, do nothing----------------------------------------------
   }
 
   // 2. Update the text content of the HTML elements
