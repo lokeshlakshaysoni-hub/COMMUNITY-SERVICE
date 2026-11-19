@@ -11,13 +11,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Load existing profile from localStorage
 function loadUserProfile() {
+  let profile = {};
   const savedData = localStorage.getItem("bharat_user_profile");
-  if (!savedData) return;
+  if (savedData) {
+    try {
+      profile = JSON.parse(savedData);
+    } catch (e) {}
+  }
+
+  // Fallback to logged in session data if profile fields are empty
+  const loggedData = localStorage.getItem("bharat_logged_user");
+  if (loggedData) {
+    try {
+      const logged = JSON.parse(loggedData);
+      if (!profile.name && logged.name) profile.name = logged.name;
+      if (!profile.username && logged.username) profile.username = logged.username;
+      if (!profile.pfp && logged.pfp) profile.pfp = logged.pfp;
+    } catch (e) {}
+  }
 
   try {
-    const profile = JSON.parse(savedData);
     if (document.getElementById("acc-username")) document.getElementById("acc-username").value = profile.username || "";
-    if (document.getElementById("acc-password")) document.getElementById("acc-password").value = profile.password || "";
+    if (document.getElementById("acc-password")) document.getElementById("acc-password").value = profile.password || "password123";
     if (document.getElementById("acc-fullname")) document.getElementById("acc-fullname").value = profile.name || "";
     if (document.getElementById("acc-phone")) document.getElementById("acc-phone").value = profile.phone || "";
     if (document.getElementById("acc-address")) document.getElementById("acc-address").value = profile.address || "";

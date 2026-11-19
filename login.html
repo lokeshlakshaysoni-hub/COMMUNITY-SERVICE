@@ -44,7 +44,7 @@
   </header>
 
   <main class="auth-container">
-    <div class="auth-wrapper pop-card">
+    <div class="auth-wrapper">
       
       <!-- Auth Switch Tabs -->
       <div class="auth-tabs">
@@ -57,6 +57,13 @@
 
       <!-- 1. SIGN IN FORM -->
       <form id="login-form">
+        <div class="auth-pfp-box">
+          <div class="auth-avatar-circle">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80" alt="User Avatar" id="login-avatar-preview">
+          </div>
+          <span class="auth-avatar-badge" id="login-badge-text">Portal Sign In</span>
+        </div>
+
         <div class="auth-header">
           <h2>Welcome Back</h2>
           <p>Enter your credentials to access your saved plant selections.</p>
@@ -75,17 +82,45 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 22px;">Sign In to Account</button>
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 20px;">Sign In to Account</button>
 
         <!-- Quick Viva Demo Button -->
         <div class="auth-demo-box">
           <p>Academic Evaluation / Viva Fast Login:</p>
-          <button type="button" class="btn btn-secondary btn-block" style="font-size: 0.85rem; padding: 8px 12px;" onclick="demoQuickLogin()">One-Click Student Demo Sign In</button>
+          <button type="button" class="btn btn-secondary btn-block" style="font-size: 0.85rem; padding: 9px 12px;" onclick="demoQuickLogin()">One-Click Student Demo Sign In</button>
         </div>
       </form>
 
       <!-- 2. REGISTER FORM -->
       <form id="register-form" style="display: none;">
+        
+        <!-- PFP Selection in Register -->
+        <div class="auth-pfp-box">
+          <div class="auth-avatar-circle">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80" alt="Selected PFP" id="register-pfp-preview">
+          </div>
+          <span class="auth-avatar-badge">Choose Profile Photo (PFP)</span>
+
+          <!-- Preset Avatar Options -->
+          <div class="avatar-presets-grid">
+            <button type="button" class="avatar-preset-btn active" onclick="selectPresetPfp('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80', this)" title="Member Avatar">
+              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80" alt="Preset 1">
+            </button>
+            <button type="button" class="avatar-preset-btn" onclick="selectPresetPfp('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=300&q=80', this)" title="Student Researcher">
+              <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=300&q=80" alt="Preset 2">
+            </button>
+            <button type="button" class="avatar-preset-btn" onclick="selectPresetPfp('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80', this)" title="Urban Horticulturist">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" alt="Preset 3">
+            </button>
+            <button type="button" class="avatar-preset-btn" onclick="selectPresetPfp('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80', this)" title="Plant Doctor">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Preset 4">
+            </button>
+          </div>
+
+          <label for="reg-pfp-upload" class="pfp-upload-btn-custom">Upload Custom Photo</label>
+          <input type="file" id="reg-pfp-upload" accept="image/*" style="display: none;" onchange="handlePfpUpload(this)">
+        </div>
+
         <div class="auth-header">
           <h2>Join Bharat Nursery</h2>
           <p>Create a verified member profile for personalized horticultural care.</p>
@@ -181,6 +216,51 @@
 
   <script src="js/main.js"></script>
   <script>
+    // Selected PFP URL state
+    let selectedPfpUrl = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80";
+
+    // Auto-load remembered PFP into Sign In tab
+    document.addEventListener("DOMContentLoaded", function() {
+      const savedProfile = localStorage.getItem("bharat_user_profile");
+      if (savedProfile) {
+        try {
+          const parsed = JSON.parse(savedProfile);
+          if (parsed.pfp) {
+            document.getElementById("login-avatar-preview").src = parsed.pfp;
+            if (parsed.name) {
+              document.getElementById("login-badge-text").textContent = parsed.name;
+            }
+          }
+        } catch (e) {}
+      }
+    });
+
+    // Preset Avatar Selection
+    function selectPresetPfp(url, btn) {
+      selectedPfpUrl = url;
+      document.getElementById("register-pfp-preview").src = url;
+
+      const allPresetBtns = document.querySelectorAll(".avatar-preset-btn");
+      allPresetBtns.forEach(b => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+    }
+
+    // Custom Photo File Upload Handler
+    function handlePfpUpload(input) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          selectedPfpUrl = e.target.result;
+          document.getElementById("register-pfp-preview").src = selectedPfpUrl;
+
+          // Remove preset active highlight
+          const allPresetBtns = document.querySelectorAll(".avatar-preset-btn");
+          allPresetBtns.forEach(b => b.classList.remove("active"));
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
     // Tab switching logic
     function switchAuthTab(tab) {
       const loginForm = document.getElementById("login-form");
@@ -240,22 +320,25 @@
 
       const existingProfile = localStorage.getItem("bharat_user_profile");
       let displayName = username;
+      let userPfp = selectedPfpUrl;
       if (existingProfile) {
         try {
           const parsed = JSON.parse(existingProfile);
           if (parsed.name) displayName = parsed.name;
+          if (parsed.pfp) userPfp = parsed.pfp;
         } catch (err) {}
       }
 
       localStorage.setItem("bharat_logged_user", JSON.stringify({
         username: username,
         name: displayName,
+        pfp: userPfp,
         loginTime: new Date().toISOString()
       }));
 
       setTimeout(function() {
         window.location.href = "account.html";
-      }, 1000);
+      }, 900);
     });
 
     // Registration Form Submit
@@ -276,13 +359,14 @@
         username: username,
         phone: phone,
         password: password,
-        pfp: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80"
+        pfp: selectedPfpUrl
       };
 
       localStorage.setItem("bharat_user_profile", JSON.stringify(profile));
       localStorage.setItem("bharat_logged_user", JSON.stringify({
         username: username,
         name: fullname,
+        pfp: selectedPfpUrl,
         loginTime: new Date().toISOString()
       }));
 
@@ -290,23 +374,28 @@
 
       setTimeout(function() {
         window.location.href = "account.html";
-      }, 1000);
+      }, 900);
     });
 
     // One-Click Demo Login for Viva / Teacher Presentation
     function demoQuickLogin() {
+      const demoPfp = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80";
       const demoUser = {
         username: "lokesh_krmu",
         name: "Lokesh Verma (Team Lead)",
+        pfp: demoPfp,
         loginTime: new Date().toISOString()
       };
+
+      document.getElementById("login-avatar-preview").src = demoPfp;
+      document.getElementById("login-badge-text").textContent = "Lokesh Verma (Team Lead)";
 
       localStorage.setItem("bharat_logged_user", JSON.stringify(demoUser));
       showAuthAlert("Signed in as Lokesh Verma (Student Lead). Redirecting to Account...", "success");
 
       setTimeout(function() {
         window.location.href = "account.html";
-      }, 900);
+      }, 800);
     }
   </script>
 </body>
