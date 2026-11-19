@@ -1,6 +1,7 @@
 // ==========================================================
 // BHARAT NURSERY - MAIN JAVASCRIPT UTILITIES
-// Global navigation, authentication state, and session helpers.
+// Global navigation, responsive mobile menu, session synchronization.
+// Authors: Lokesh Verma & Punit Kumar
 // Strictly zero emojis.
 // ==========================================================
 
@@ -9,14 +10,30 @@ document.addEventListener("DOMContentLoaded", function () {
   updateAuthNavbar();
 });
 
-// Mobile navigation toggle
+// Responsive Mobile navigation toggle
 function initMobileNav() {
   const toggleBtn = document.querySelector(".nav-toggle");
   const navMenu = document.querySelector(".nav-menu");
 
   if (toggleBtn && navMenu) {
-    toggleBtn.addEventListener("click", function () {
+    toggleBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
       navMenu.classList.toggle("show");
+    });
+
+    // Close menu when clicking any nav link
+    const navLinks = navMenu.querySelectorAll(".nav-link, .nav-btn");
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        navMenu.classList.remove("show");
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+        navMenu.classList.remove("show");
+      }
     });
   }
 }
@@ -30,11 +47,11 @@ function updateAuthNavbar() {
   if (loggedUser) {
     try {
       const userObj = JSON.parse(loggedUser);
-      authBtn.textContent = userObj.username || "Account";
+      authBtn.textContent = userObj.name || userObj.username || "My Account";
       authBtn.href = "account.html";
-      authBtn.classList.add("btn-accent");
+      authBtn.classList.add("btn-nature");
     } catch (e) {
-      authBtn.textContent = "Account";
+      authBtn.textContent = "My Account";
       authBtn.href = "account.html";
     }
   } else {
@@ -43,7 +60,9 @@ function updateAuthNavbar() {
   }
 }
 
-// Generic alert helper for clean notifications
-function showToast(message) {
-  alert(message);
+// Global user session logout helper
+function logoutUser() {
+  localStorage.removeItem("bharat_logged_user");
+  alert("You have been signed out. Redirecting to home page.");
+  window.location.href = "index.html";
 }

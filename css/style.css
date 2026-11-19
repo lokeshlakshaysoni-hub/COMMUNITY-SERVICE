@@ -1768,30 +1768,321 @@ main {
 }
 
 /* ==========================================================
-   RESPONSIVE MEDIA QUERIES
+   AUTHENTICATION PAGES (login.html)
+   ========================================================== */
+.auth-container {
+  padding: 60px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 350px);
+}
+
+.auth-wrapper {
+  max-width: 480px;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.auth-tabs {
+  display: flex;
+  background-color: #f1f5f9;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 26px;
+  border: 1px solid var(--border-color);
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: center;
+}
+
+.auth-tab.active {
+  background-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.25);
+}
+
+.auth-header {
+  margin-bottom: 22px;
+}
+
+.auth-header h2 {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 4px;
+}
+
+.auth-header p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.password-field-wrapper {
+  position: relative;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.password-toggle-btn:hover {
+  text-decoration: underline;
+}
+
+.auth-status-alert {
+  display: none;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.auth-status-alert.success {
+  display: block;
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.auth-status-alert.error {
+  display: block;
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.auth-demo-box {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border-color);
+  text-align: center;
+}
+
+.auth-demo-box p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* ==========================================================
+   RECOMMENDER & ACCOUNT LAYOUT RESPONSIVENESS
+   ========================================================== */
+.recommend-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 30px;
+}
+
+.account-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 30px;
+}
+
+.filter-panel,
+.results-panel,
+.account-sidebar,
+.account-form-panel {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================
+   RESPONSIVE MEDIA QUERIES (ANY DEVICE OPTIMIZATION)
    ========================================================== */
 @media (max-width: 900px) {
-  .nav-menu {
-    display: none;
+  .nav-container {
+    position: relative;
   }
+
   .nav-toggle {
     display: block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
   }
+
+  .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-dark);
+    flex-direction: column;
+    padding: 20px;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 3px solid var(--primary-light);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+  }
+
+  .nav-menu.show {
+    display: flex;
+    animation: popIn 0.25s ease-out;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 0.98rem;
+  }
+
+  .nav-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+  }
+
   .about-hero-grid,
   .maps-grid,
   .ratings-overview,
   .figma-card,
   .react-calc-grid,
-  .account-profile-grid {
+  .account-profile-grid,
+  .recommend-layout,
+  .account-layout {
     grid-template-columns: 1fr;
   }
+
   .score-box {
     border-right: none;
     border-bottom: 1px solid var(--border-color);
     padding-right: 0;
     padding-bottom: 20px;
   }
+
   .hero h1 {
     font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .page-header {
+    padding: 40px 15px;
+  }
+
+  .page-header h1 {
+    font-size: 1.85rem;
+  }
+
+  .hero {
+    padding: 65px 0 55px 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .auth-wrapper {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.65rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: -25px;
+  }
+
+  .stat-card {
+    padding: 16px 10px;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .plants-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-pills {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .pill-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .modal-grid,
+  .react-metrics-grid,
+  .figma-spec-list {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
   }
 }
